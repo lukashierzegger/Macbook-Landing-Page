@@ -1,42 +1,26 @@
-import { navLinks } from "../constants";
+import { ctaHref, navLinks } from "../constants";
 
-const NavBar = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // smooth scrolling
-    });
-  };
+const NavBar = () => (
+  <header className="site-header">
+    <nav>
+      <a className="wordmark" href="#top" aria-label="WindCore home">
+        <span>W</span>
+        WindCore
+      </a>
 
-  return (
-    <header>
-      <nav>
-        <img
-          src="/logo.svg"
-          alt="Apple logo"
-          className="cursor-pointer"
-          onClick={scrollToTop}
-        />
+      <ul>
+        {navLinks.map(({ label, href }) => (
+          <li key={label}>
+            <a href={href}>{label}</a>
+          </li>
+        ))}
+      </ul>
 
-        <ul>
-          {navLinks.map(({ label }) => (
-            <li key={label}>
-              <a href={label}>{label}</a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="gap-3 flex-center">
-          <button>
-            <img src="/search.svg" alt="Search" />
-          </button>
-          <button>
-            <img src="/cart.svg" alt="Cart" />
-          </button>
-        </div>
-      </nav>
-    </header>
-  );
-};
+      <a className="nav-cta" href={ctaHref}>
+        Pitch deck
+      </a>
+    </nav>
+  </header>
+);
 
 export default NavBar;

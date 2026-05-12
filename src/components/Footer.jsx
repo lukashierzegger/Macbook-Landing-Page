@@ -1,30 +1,20 @@
-import { footerLinks } from "../constants/index.js";
+import { ctaHref } from "../constants";
 
-const Footer = () => {
-  return (
-    <footer>
-      <div className="info">
-        <p>
-          More ways to shop: Find an Apple Store or other retailer near you. Or
-          call 000800 040 1966.
-        </p>
-        <img src="/logo.svg" alt="Apple logo" />
-      </div>
+const Footer = () => (
+  <footer className="site-footer">
+    <div>
+      <a className="wordmark" href="#top" aria-label="WindCore home">
+        <span>W</span>
+        WindCore
+      </a>
+      <p>
+        Public blueprint teaser for compliance-grade compute built from physical
+        renewable provenance.
+      </p>
+    </div>
 
-      <hr />
+    <a href={ctaHref}>Request the pitch deck</a>
+  </footer>
+);
 
-      <div className="links">
-        <p>Copyright © 2025 Apple Inc. All rights reserved.</p>
-
-        <ul>
-          {footerLinks.map(({ label, link }) => (
-            <li key={label}>
-              <a href={link}>{label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </footer>
-  );
-};
 export default Footer;
